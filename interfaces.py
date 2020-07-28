@@ -8,18 +8,29 @@ __email__ = 'meszle01@ads.uni-passau.de'
 
 from abc import ABC, abstractmethod
 from informationObjects import GridVoltageReading, TimeIntervalPowerRequirement, GridPowerReading
+from mosaik_api import Simulator
 
-class AbstractSimulationObject(ABC):
+
+class AbstractSimulationObject(ABC, Simulator):
     """Abstract class for a simulation object."""
 
     @abstractmethod
-    def init(self, args):
+    def init(self, sid, **sim_params):
         """Creates the simulation instance with the arguments."""
         pass
 
     @abstractmethod
-    def run(self, args):
+    def create(self, num, model, **model_params):
+        pass
+
+
+    @abstractmethod
+    def step(self, time, inputs):
         """Runs the simulation instance in a simulation step."""
+        pass
+
+    @abstractmethod
+    def get_data(self, outputs) -> dict:
         pass
 
 
