@@ -19,7 +19,7 @@ In order to implement an interface, import the base class from the `interfaces.p
 `from interfaces import AbstractVPPServer` and
 make a subclass of the interface with
 ```python
-from interfaces import AbstractVPPServer
+from interfaces.interfaces import AbstractVPPServer
 
 class VPPServer(AbstractVPPServer):
     ...

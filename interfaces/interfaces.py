@@ -7,7 +7,7 @@ __author__ = 'Lóránt Meszlényi'
 __email__ = 'meszle01@ads.uni-passau.de'
 
 from abc import ABC, abstractmethod
-from informationObjects import GridVoltageReading, TimeIntervalPowerRequirement, GridPowerReading
+from interfaces.informationObjects import GridVoltageReading, TimeIntervalPowerRequirement, GridPowerReading
 from mosaik_api import Simulator
 
 

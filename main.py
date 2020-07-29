@@ -1,8 +1,8 @@
 def main():
-    from interfaces import AbstractLocalMeasurementDevice
+    from interfaces.interfaces import AbstractLocalMeasurementDevice
     lmd = AbstractLocalMeasurementDevice() # Expecting error methods not implemented.
 
-    from informationObjects import GridVoltageReading
+    from interfaces.informationObjects import GridVoltageReading
     print(GridVoltageReading(voltage=230))
 
 
