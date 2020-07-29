@@ -7,8 +7,9 @@ __author__ = 'Lóránt Meszlényi'
 __email__ = 'meszle01@ads.uni-passau.de'
 
 from abc import ABC, abstractmethod
-from interfaces.informationObjects import TimeIntervalPowerRequirement, GridPowerReading
+from typing import List
 from mosaik_api import Simulator
+from interfaces.informationObjects import TimeIntervalPowerRequirement, GridPowerReading
 
 
 class AbstractSimulationObject(ABC, Simulator):
@@ -42,7 +43,7 @@ class AbstractVPPServer(AbstractSimulationObject):
 
     """Calculates the setpoint for the PV controllers."""
     @abstractmethod
-    def get_pv_setpoints(self):
+    def get_pv_setpoints(self) -> List:
         pass
 
 
