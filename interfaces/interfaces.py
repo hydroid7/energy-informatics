@@ -33,30 +33,6 @@ class AbstractSimulationObject(ABC, Simulator):
     def get_data(self, outputs) -> dict:
         pass
 
-
-class AbstractLocalMeasurementDevice(AbstractSimulationObject):
-    """Device Placed at the connection point of the PV System and the power grid."""
-
-    @abstractmethod
-    def read_grid_voltage(self) -> GridVoltageReading:
-        """Reads the current local grid voltage"""
-        pass
-
-    @abstractmethod
-    def read_real_feed_in(self) -> GridPowerReading:
-        """Reads the current grid feed in"""
-        pass
-
-
-class AbstractEnergyMarketSystem(AbstractSimulationObject):
-    """System that communicates the required amount of electric power"""
-
-    @abstractmethod
-    def read_required_energy(self) -> TimeIntervalPowerRequirement:
-        """Determines the required amount of energy"""
-        pass
-
-
 class AbstractVPPServer(AbstractSimulationObject):
     """Component that is responsible for the switching of PV systems dependent of the needs of the energy market."""
 
@@ -89,4 +65,14 @@ class AbstractPVController(AbstractSimulationObject):
     @abstractmethod
     def set_operation_state(self, feed_in=True) -> None:
         """Sets the controllers state to either "Feed-in" or "Disabled" """
+        pass
+
+    @abstractmethod
+    def read_grid_voltage(self) -> GridVoltageReading:
+        """Reads the current local grid voltage"""
+        pass
+
+    @abstractmethod
+    def read_real_feed_in(self) -> GridPowerReading:
+        """Reads the current grid feed in"""
         pass

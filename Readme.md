@@ -10,10 +10,11 @@
 #### General
 The file `interfaces.py` contains all required interfaces for the implementations.
 The following interfaces are designed:
-- `AbstractLocalMeasurementDevice`
-- `AbstractEnergyMarketSystem`
+- ~~AbstractLocalMeasurementDevice~~ -> Integrated into `AbstractPVController`
+- ~~AbstractEnergyMarketSystem~~ -> Simple CSV Reader of Mosaik
 - `AbstractVPPServer`
 - `AbstractPVController`
+  The Component has to set its real power output to `min(VPPValue, LocalPowerRegulatorValue)`
 
 In order to implement an interface, import the base class from the `interfaces.py` with 
 `from interfaces import AbstractVPPServer` and
