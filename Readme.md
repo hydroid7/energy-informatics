@@ -3,7 +3,7 @@
 
 #### Distribution of the Tasks
 - Task a: Lóránt Meszlényi
-- Task b, c: Nahla Ben Mosbah, Karim Toumi, Basma Dakech, Priyanka Nagulapally
+- Task b, c: Nahla Ben Mosbah, Karim Toumi, Basma Dakech, Priyanka Nagulapally, Lóránt Meszlényi
 - Task d: Lóránt Meszlényi
 
 #### General
