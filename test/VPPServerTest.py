@@ -25,6 +25,12 @@ class VPPServerTestCase(TestCase):
         setpoints = vpp_server.get_pv_setpoints(feed_in)
         self.assertListEqual(setpoints.pv_plants, [0, 0, 0, 0, 100, 0])
 
+    def test_calculate_diff(self):
+        e_requirements = MarketPowerRequirement(2_000)
+        vpp_server.set_market_energy_requirement(e_requirements)
+        feed_in = PowerFeedIn([200, 500, 400, 600, 100, 0])
+        self.assertEqual(vpp_server._calculate_diff(feed_in), e_requirements.power_requirement_per_minute() - 1800)
+
 
 if __name__ == '__main__':
     main()

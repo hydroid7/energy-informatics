@@ -23,7 +23,6 @@ class VPPServer(AbstractVPPServer):
         else:
             return self._enable_pv_systems(diff, pv_feed_in)
 
-
     def _calculate_diff(self, pv_feed_in):
         current_feed_in = pv_feed_in.total_feed_in()
         target = self._energy_requirements.power_requirement_per_minute()
