@@ -43,9 +43,9 @@ def create_scenario(world):
     hhsim = world.start('HouseholdSim')
     pvsim = world.start('CSV', sim_start=START, datafile=PV_DATA)
 
-    energy_market = word.start('CSV', sim_start=START, datafile=ENERGY_REQUIREMENTS_FILE)
-    vpp_server = word.start('VPPServer')
-    pv_controller = word.start('VPController')
+    energy_market = world.start('CSV', sim_start=START, datafile=ENERGY_REQUIREMENTS_FILE)
+    vpp_server = world.start('VPPServer')
+    pv_controller = world.start('VPController')
 
     # Instantiate models
     grid = pypower.Grid(gridfile=GRID_FILE).children
