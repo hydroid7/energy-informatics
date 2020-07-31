@@ -8,7 +8,7 @@ __email__ = 'meszle01@ads.uni-passau.de'
 
 from abc import ABC, abstractmethod
 from typing import List
-from interfaces.informationObjects import TimeIntervalPowerRequirement, GridPowerReading
+from interfaces.informationObjects import MarketPowerRequirement, PowerFeedIn
 
 
 class AbstractSimulationObject(ABC):
@@ -19,12 +19,12 @@ class AbstractVPPServer(AbstractSimulationObject):
     """Component that is responsible for the switching of PV systems dependent of the needs of the energy market."""
 
     @abstractmethod
-    def set_market_energy_requirement(self, requirements: TimeIntervalPowerRequirement):
+    def set_market_energy_requirement(self, requirements: MarketPowerRequirement):
         pass
 
     """Calculates the setpoint for the PV controllers."""
     @abstractmethod
-    def get_pv_setpoints(self) -> List:
+    def get_pv_setpoints(self, pv_feed_in: PowerFeedIn) -> List:
         pass
 
 
@@ -49,6 +49,6 @@ class AbstractPVController(AbstractSimulationObject):
         pass
 
     @abstractmethod
-    def get_real_feed_in(self) -> GridPowerReading:
+    def get_real_feed_in(self):
         """Reads the current grid feed in"""
         pass
