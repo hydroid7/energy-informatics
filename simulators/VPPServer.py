@@ -10,15 +10,3 @@ class VPPServer(AbstractVPPServer):
 
     def get_pv_setpoints(self) -> List:
         pass
-
-    def init(self, sid, **sim_params):
-        pass
-
-    def create(self, num, model, **model_params):
-        pass
-
-    def step(self, time, inputs):
-        pass
-
-    def get_data(self, outputs) -> dict:
-        pass

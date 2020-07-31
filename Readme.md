@@ -3,8 +3,7 @@
 
 #### Distribution of the Tasks
 - Task a: Lóránt Meszlényi
-- Task b: Nahla Ben Mosbah, Karim Toumi
-- Task c: Basma Dakech, Priyanka Nagulapally
+- Task b, c: Nahla Ben Mosbah, Karim Toumi, Basma Dakech, Priyanka Nagulapally
 - Task d: Lóránt Meszlényi
 
 #### General
@@ -16,13 +15,17 @@ The following interfaces are designed:
 - `AbstractPVController`
   The Component has to set its real power output to `min(VPPValue, LocalPowerRegulatorValue)`
 
-In order to implement an interface, import the base class from the `interfaces.py` with 
-`from interfaces import AbstractVPPServer` and
-make a subclass of the interface with
-```python
-from interfaces.interfaces import AbstractVPPServer
+#### Organization
+All interfaces and data objects belongs to the interfaces folder.
+Simulation entities are placed in the `simulators` folders and their tests come to the `test` folder.
 
-class VPPServer(AbstractVPPServer):
-    ...
-```
-and implement its methods. The documentation is also available for each method in its superclass.
+
+#### Implementing Interfaces
+To implement an interface and the test belonging to the interface, check out the files `simulators/PVController.py` and
+`test/PVController.py`.
+
+If you have to change the methods signature (because you need more data, etc.) feel free to do this. In this case please
+don't forget to update the interfaces signature. Otherwise your tests will *fail*.
+
+If you need complex data types as return values or as method parameters, e. g. Power reading with time constraints, 
+create a new DataObject for this. All data objects you can find in the folder `interfaces/informationObjects.py`.
